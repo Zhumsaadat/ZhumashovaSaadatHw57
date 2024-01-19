@@ -6,7 +6,7 @@ export interface  User {
     isActive: boolean;
 }
 
-export interface  DishMutation {
+export interface  UserMutation {
     name:string;
     email: string;
     category: string

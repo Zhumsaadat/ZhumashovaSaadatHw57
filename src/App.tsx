@@ -1,13 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-import UserForm from './UserForm/UserForm';
+import UserForm from './UserForm/UserForm.tsx';
 import Users from './Users/Users';
 import { User } from '../types';
+
 
 function App() {
   const [users, setUser] = useState<User[]>([
     {id: '1', name: 'Jhon', email: 'hgh@gmail.com', category: 'admin', isActive: false},
   ]);
+
+  const addUser = (user: User) => {
+    setUser(prevState => [...prevState, user]);
+  };
 
   return (
     <>
@@ -21,7 +26,7 @@ function App() {
       <main className="container-fluid">
         <div className="row mt-2">
           <div className="col-4">
-            <UserForm/>
+            <UserForm users={users} onSubmit={addUser}/>
           </div>
           <div className="col-8">
             <Users users={users}/>

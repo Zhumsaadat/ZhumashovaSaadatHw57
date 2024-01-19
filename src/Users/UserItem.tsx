@@ -2,10 +2,10 @@ import React from 'react';
 import { User } from '../../types';
 
 interface Props {
-    user: User[];
+    user: User;
 }
 
-const UserItem: React.FC = ({user}) => {
+const UserItem: React.FC<Props> = ({user}) => {
     const textIsActive = () => {
         if(user.isActive){
             return 'Active'
